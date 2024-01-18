@@ -143,7 +143,6 @@ const BaseTable: React.FC<BaseTableProps<any>> = ({ data, onRowClick }) => {
     const filteredData = data.filter((item) => {
       // loop filter state data
       for (const { name, value } of filter) {
-        console.log(name, item[name]);
         // item[name] is date
         if(item[name] instanceof Date) {
           const dateFilterValue = value.toLowerCase();

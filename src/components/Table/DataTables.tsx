@@ -21,15 +21,11 @@ const DataTables: React.FC<DataTablesProps> = ({ data }) => {
   const [selectedProfileId, setSelectedProfileId] = useState<number | null>(
     null
   );
-  const [selectedCampaignId, setSelectedCampaignId] = useState<number | null>(
-    null
-  );
   // state picked tab
   const [selectedTab, setSelectedTab] = useState<Tab>(Tab.Accounts);
 
   // reset picked ids
   const resetStateIds = () => {
-    setSelectedCampaignId(null);
     setSelectedAccountId(null);
     setSelectedProfileId(null);
   };
@@ -48,7 +44,7 @@ const DataTables: React.FC<DataTablesProps> = ({ data }) => {
             campaigns={data.campaigns.filter(
               (campaign) => campaign.profileId === selectedProfileId
             )}
-            onRowClick={(row) => setSelectedCampaignId(row.campaignId)}
+            onRowClick={(row) => setSelectedProfileId(row.profileId)}
           />
         );
       case Boolean(selectedAccountId):
@@ -80,7 +76,7 @@ const DataTables: React.FC<DataTablesProps> = ({ data }) => {
             return (
               <CampaignsTable
                 campaigns={data.campaigns}
-                onRowClick={(row) => setSelectedCampaignId(row.campaignId)}
+                onRowClick={(row) => setSelectedProfileId(row.profileId)}
               />
             );
           default:
